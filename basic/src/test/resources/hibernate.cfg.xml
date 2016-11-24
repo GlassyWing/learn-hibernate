@@ -46,15 +46,21 @@
 
         <mapping class="org.hibernate.userguide.type.basictype.Phone"/>
 
-        <mapping class="org.hibernate.userguide.type.basictype.lobtype.Product"/>
-
-        <mapping class="org.hibernate.userguide.type.basictype.lobtype.Product2"/>
-
-        <mapping class="org.hibernate.userguide.type.basictype.lobtype.Product3"/>
-
-        <mapping class="org.hibernate.userguide.type.basictype.lobtype.Product4"/>
-
         <mapping class="org.hibernate.userguide.type.basictype.Person"/>
+
+        <!--#! Mapping Lob type -->
+        <!--<mapping class="org.hibernate.userguide.type.basictype.lobtype.Product"/>-->
+
+        <!--<mapping class="org.hibernate.userguide.type.basictype.lobtype.Product2"/>-->
+
+        <!--<mapping class="org.hibernate.userguide.type.basictype.lobtype.Product3"/>-->
+
+        <!--<mapping class="org.hibernate.userguide.type.basictype.lobtype.Product4"/>-->
+
+        <!--#! Mapping nationalized character data-->
+        <mapping class="org.hibernate.userguide.type.basictype.nationalizedchardata.Product"/>
+
+        <mapping class="org.hibernate.userguide.type.basictype.nationalizedchardata.Product1"/>
 
         <mapping resource="org/hibernate/tutorial/hbm/Event.hbm.xml"/>
 

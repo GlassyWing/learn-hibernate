@@ -1,13 +1,12 @@
-package org.hibernate.userguide.type.basictype.lobtype;
+package org.hibernate.userguide.type.basictype;
 
 import org.hibernate.BasicTest;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.hibernate.engine.jdbc.ClobProxy;
+import org.hibernate.userguide.type.basictype.lobtype.*;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.io.Reader;
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -20,20 +19,20 @@ public class LobTypeTest extends BasicTest {
     public void testLobTypeBaseOnLocator() {
         String warranty = "My product warranty";
 
-        final Product product = new Product();
+        final org.hibernate.userguide.type.basictype.lobtype.Product product = new org.hibernate.userguide.type.basictype.lobtype.Product();
         product.setId(1);
         product.setName("Mobile phone");
 
         doInHibernate(this, session -> {
             session.doWork(connection -> product.setWarranty(
                     ClobProxy.generateProxy(warranty)
-                    ));
+            ));
             session.save(product);
         });
 
         doInHibernate(this, session -> {
-            Product product1 = session.find(Product.class, 1);
-            try(Reader reader = product1.getWarranty().getCharacterStream()) {
+            org.hibernate.userguide.type.basictype.lobtype.Product product1 = session.find(org.hibernate.userguide.type.basictype.lobtype.Product.class, 1);
+            try (Reader reader = product1.getWarranty().getCharacterStream()) {
                 assertEquals("My product warranty", toString(reader));
             }
         });
@@ -52,7 +51,7 @@ public class LobTypeTest extends BasicTest {
 
         doInHibernate(this, session -> {
             Product3 product1 = session.find(Product3.class, 1);
-            assertArrayEquals(new byte[]{1,2,3}, product1.getImage().getBytes(0, 3));
+            assertArrayEquals(new byte[]{1, 2, 3}, product1.getImage().getBytes(0, 3));
         });
     }
 
@@ -89,13 +88,4 @@ public class LobTypeTest extends BasicTest {
         });
     }
 
-    private String toString(Reader reader) throws IOException {
-        StringBuilder builder = new StringBuilder();
-        char[] buffer = new char[1024];
-        int off = 0;
-        while ((off = reader.read(buffer, off, buffer.length)) != -1) {
-            builder.append(buffer);
-        }
-        return builder.toString();
-    }
 }

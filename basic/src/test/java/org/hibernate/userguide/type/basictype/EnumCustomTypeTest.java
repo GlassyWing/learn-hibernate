@@ -6,6 +6,10 @@ import org.junit.Test;
 /**
  * Created by manlier on 2016/11/23.
  */
+
+/**
+ * 对枚举类型套用自定义的映射类
+ */
 public class EnumCustomTypeTest extends CustomTypeTest {
 
     public EnumCustomTypeTest() {

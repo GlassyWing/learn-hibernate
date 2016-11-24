@@ -7,6 +7,10 @@ import org.junit.Test;
 /**
  * Created by manlier on 2016/11/22.
  */
+
+/**
+ * 用于对枚举类型的映射进行测试
+ */
 public class EnumeratedTypeTest extends BasicTest {
 
     @Test

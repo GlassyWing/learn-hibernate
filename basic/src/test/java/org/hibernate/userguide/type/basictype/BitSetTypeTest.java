@@ -14,6 +14,11 @@ import static org.junit.Assert.*;
 /**
  * Created by manlier on 2016/11/21.
  */
+
+/**
+ * 测试基本类型的使用
+ * 包括自定义Hibernate的基本类型
+ */
 public class BitSetTypeTest extends BasicTest {
 
     @Override
@@ -25,6 +30,7 @@ public class BitSetTypeTest extends BasicTest {
 
         MetadataBuilder metadataBuilder = sources.getMetadataBuilder();
 
+        // 注册自定义基本类型
         metadataBuilder.applyBasicType(BitSetType.INSTANCE);
 
         try {
